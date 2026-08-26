@@ -37,6 +37,7 @@ ${profileData.about.bio.join('\n\n')}
 ---
 
 ## TOP SKILLS & CORE COMPETENCIES
+- Generative AI Strategy & Enterprise LLM Integration (Google Certified)
 - Web Application Security (OWASP Top 10)
 - Penetration Testing & Ethical Hacking
 - E-Governance Architecture & Institutional ERPs
@@ -255,13 +256,25 @@ ${certificationsData.map(c => `- **${c.name}** — Issued by ${c.issuer} (${c.sk
         {/* Live Resume Summary Snapshot Box */}
         <div className="p-6 sm:p-8 rounded-3xl bg-gray-50 border border-gray-200 space-y-6 shadow-2xs">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-gray-200">
-            <div>
-              <h3 className="text-xl font-bold text-gray-900">
-                {profileData.name} — Curriculum Vitae Snapshot
-              </h3>
-              <p className="text-xs text-gray-500 font-mono mt-0.5">
-                {profileData.headline} • {profileData.location}
-              </p>
+            <div className="flex items-center gap-3.5">
+              {profileData.photoUrl && (
+                <div className="w-12 h-12 rounded-xl overflow-hidden border border-gray-200 shadow-2xs shrink-0 bg-white">
+                  <img
+                    src={profileData.photoUrl}
+                    alt={profileData.name}
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
+              )}
+              <div>
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900">
+                  {profileData.name} — Curriculum Vitae Snapshot
+                </h3>
+                <p className="text-xs text-gray-500 font-mono mt-0.5">
+                  {profileData.headline} • {profileData.location}
+                </p>
+              </div>
             </div>
 
             <div className="flex items-center gap-2">
@@ -302,9 +315,9 @@ ${certificationsData.map(c => `- **${c.name}** — Issued by ${c.issuer} (${c.sk
                 <span>Key Certifications</span>
               </div>
               <ul className="space-y-1.5 text-gray-600">
+                <li>• Google Cloud Certified Generative AI Leader</li>
                 <li>• TCS Cybersecurity Analyst Job Simulation</li>
                 <li>• Google Cloud Professional Workspace Admin</li>
-                <li>• Google Cloud & Kubernetes Foundation</li>
                 <li>• CNSS National Security Systems Certified</li>
               </ul>
             </div>

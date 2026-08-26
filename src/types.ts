@@ -66,6 +66,7 @@ export interface ProfileData {
   location: string;
   linkedinUrl: string;
   githubUrl: string;
+  photoUrl?: string;
   phone?: string;
   about: {
     bio: string[];

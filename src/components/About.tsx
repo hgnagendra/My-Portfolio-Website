@@ -92,10 +92,33 @@ export const About: React.FC<AboutProps> = ({ onOpenResumeModal }) => {
           {/* Right: Key Milestones & Profile Summary Card */}
           <div className="lg:col-span-5 space-y-6">
             <div className="rounded-3xl bg-gray-50 border border-gray-200 p-6 sm:p-7 space-y-6">
-              <h3 className="text-base font-bold text-gray-900 flex items-center justify-between pb-3 border-b border-gray-200">
-                <span>Quick Profile Summary</span>
-                <span className="text-xs font-mono text-gray-500">Mysuru, IN</span>
-              </h3>
+              <div className="flex items-center gap-4 pb-4 border-b border-gray-200">
+                <div className="w-16 h-16 rounded-2xl overflow-hidden border border-gray-200 shadow-2xs shrink-0 bg-white">
+                  {profileData.photoUrl ? (
+                    <img
+                      src={profileData.photoUrl}
+                      alt={profileData.name}
+                      referrerPolicy="no-referrer"
+                      className="w-full h-full object-cover object-top"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center font-bold text-gray-700 bg-gray-100">
+                      NH
+                    </div>
+                  )}
+                </div>
+                <div>
+                  <h3 className="text-base font-bold text-gray-900">
+                    {profileData.name}
+                  </h3>
+                  <p className="text-xs text-blue-600 font-semibold">
+                    Programmer @ NIE Mysuru
+                  </p>
+                  <p className="text-[11px] text-gray-500 font-mono mt-0.5">
+                    Mysuru, Karnataka, India
+                  </p>
+                </div>
+              </div>
 
               <div className="space-y-3.5 text-sm">
                 <div className="flex justify-between items-start py-1 border-b border-gray-200/70">
@@ -119,13 +142,13 @@ export const About: React.FC<AboutProps> = ({ onOpenResumeModal }) => {
                 </div>
 
                 <div className="flex justify-between items-start py-1 border-b border-gray-200/70">
-                  <span className="text-gray-500">Google Crowdsource</span>
-                  <span className="font-semibold text-blue-600 text-right">Level 20 Top Contributor</span>
+                  <span className="text-gray-500">Google Credentials</span>
+                  <span className="font-semibold text-blue-600 text-right">GenAI Leader • Level 20</span>
                 </div>
 
                 <div className="flex justify-between items-start py-1">
                   <span className="text-gray-500">Security Credentials</span>
-                  <span className="font-semibold text-emerald-700 text-right">TCS, CNSS, WebAppSecurity</span>
+                  <span className="font-semibold text-emerald-700 text-right">TCS, CNSS, OWASP PenTest</span>
                 </div>
               </div>
 

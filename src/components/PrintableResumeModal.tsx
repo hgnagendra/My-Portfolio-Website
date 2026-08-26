@@ -99,34 +99,49 @@ export const PrintableResumeModal: React.FC<PrintableResumeModalProps> = ({ isOp
         >
           {/* Header */}
           <div className="border-b-2 border-slate-900 pb-5 space-y-2">
-            <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
-              <h1 className="text-3xl font-extrabold text-slate-950 tracking-tight font-serif">
-                {profileData.name}
-              </h1>
-              <span className="text-xs font-semibold text-slate-700 uppercase tracking-widest font-mono">
-                20+ Years IT Infrastructure & Cybersecurity
-              </span>
-            </div>
-            
-            <p className="text-sm font-semibold text-slate-700">
-              Programmer @ The National Institute of Engineering (NIE), Mysuru | E-Governance Specialist
-            </p>
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div className="space-y-1.5 flex-1">
+                <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+                  <h1 className="text-3xl font-extrabold text-slate-950 tracking-tight font-serif">
+                    {profileData.name}
+                  </h1>
+                  <span className="text-xs font-semibold text-slate-700 uppercase tracking-widest font-mono">
+                    20+ Years IT & Cybersecurity
+                  </span>
+                </div>
+                
+                <p className="text-sm font-semibold text-slate-800">
+                  Programmer @ The National Institute of Engineering (NIE), Mysuru | E-Governance Specialist
+                </p>
 
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-600 pt-1 font-mono">
-              <span className="flex items-center gap-1">
-                <Mail className="w-3.5 h-3.5 text-slate-800" />
-                {profileData.email}
-              </span>
-              <span>•</span>
-              <span className="flex items-center gap-1">
-                <MapPin className="w-3.5 h-3.5 text-slate-800" />
-                {profileData.location}
-              </span>
-              <span>•</span>
-              <span className="flex items-center gap-1">
-                <Linkedin className="w-3.5 h-3.5 text-slate-800" />
-                linkedin.com/in/nagendrahg
-              </span>
+                <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-slate-600 pt-1 font-mono">
+                  <span className="flex items-center gap-1">
+                    <Mail className="w-3.5 h-3.5 text-slate-800" />
+                    {profileData.email}
+                  </span>
+                  <span>•</span>
+                  <span className="flex items-center gap-1">
+                    <MapPin className="w-3.5 h-3.5 text-slate-800" />
+                    {profileData.location}
+                  </span>
+                  <span>•</span>
+                  <span className="flex items-center gap-1">
+                    <Linkedin className="w-3.5 h-3.5 text-slate-800" />
+                    linkedin.com/in/nagendrahg
+                  </span>
+                </div>
+              </div>
+
+              {profileData.photoUrl && (
+                <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-slate-900 shadow-sm shrink-0 bg-slate-100">
+                  <img
+                    src={profileData.photoUrl}
+                    alt={profileData.name}
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover object-top"
+                  />
+                </div>
+              )}
             </div>
           </div>
 
@@ -142,9 +157,9 @@ export const PrintableResumeModal: React.FC<PrintableResumeModalProps> = ({ isOp
                   Top Skills & Expertise
                 </h2>
                 <ul className="text-xs text-slate-700 space-y-1">
+                  <li className="font-semibold text-slate-900">• Google GenAI Leader (Certified)</li>
                   <li className="font-semibold text-slate-900">• WebAppSecurity (OWASP)</li>
-                  <li className="font-semibold text-slate-900">• PenetrationTesting</li>
-                  <li className="font-semibold text-slate-900">• Ethical Hacking</li>
+                  <li className="font-semibold text-slate-900">• PenetrationTesting & Hacking</li>
                   <li>• E-Governance & Academic ERP</li>
                   <li>• Linux / Unix System Admin</li>
                   <li>• Campus LAN/WAN & VLANs</li>
@@ -196,7 +211,7 @@ export const PrintableResumeModal: React.FC<PrintableResumeModalProps> = ({ isOp
                   Executive Summary
                 </h2>
                 <p className="text-xs text-slate-700 leading-relaxed text-justify">
-                  Experienced IT professional with over 20 years of expertise in system administration, cybersecurity, and network management. Currently serving as a Programmer at The National Institute of Engineering (NIE), Mysuru, specializing in maintaining critical IT infrastructure, managing campus-wide networks, and implementing robust cybersecurity protocols. Credentials include CNSS certification, PGD in E-Governance (University of Mysore), and B.Sc in Information Technology (KSOU). Level 20 Contributor at Google Crowdsource.
+                  Experienced IT professional with over 20 years of expertise in system administration, cybersecurity, and network management. Currently serving as a Programmer at The National Institute of Engineering (NIE), Mysuru, specializing in maintaining critical IT infrastructure, managing campus-wide networks, implementing robust cybersecurity protocols, and driving Generative AI adoption. Credentials include Google Certified Generative AI Leader, CNSS certification, PGD in E-Governance (University of Mysore), and B.Sc in Information Technology (KSOU). Level 20 Contributor at Google Crowdsource.
                 </p>
               </div>
 

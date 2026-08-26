@@ -80,9 +80,18 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenResumeModal }) => {
           onClick={(e) => handleNavClick(e, '#top')}
           className="group flex items-center gap-3"
         >
-          <div className="relative flex items-center justify-center w-10 h-10 rounded-2xl bg-black text-white font-mono font-bold text-base shadow-xs group-hover:bg-gray-800 transition-colors">
-            <span>NH</span>
-            <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-blue-600 border-2 border-white rounded-full" title="Available for consulting" />
+          <div className="relative flex items-center justify-center w-10 h-10 rounded-2xl bg-black text-white font-mono font-bold text-base shadow-xs group-hover:ring-2 group-hover:ring-blue-500/20 transition-all overflow-hidden border border-gray-200">
+            {profileData.photoUrl ? (
+              <img
+                src={profileData.photoUrl}
+                alt={profileData.name}
+                referrerPolicy="no-referrer"
+                className="w-full h-full object-cover"
+              />
+            ) : (
+              <span>NH</span>
+            )}
+            <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-blue-600 border-2 border-white rounded-full" title="Active & Available" />
           </div>
           <div>
             <div className="flex items-center gap-1.5">

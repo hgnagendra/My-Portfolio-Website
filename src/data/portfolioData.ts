@@ -6,28 +6,30 @@ import {
   CertificationItem,
   SkillCategory,
 } from '../types';
+import profilePhoto from '../assets/images/nagnew.png';
 
 export const profileData: ProfileData = {
   name: 'Nagendra H G',
-  headline: 'Senior Programmer & E-Governance Specialist',
-  subheadline: 'Cybersecurity Analyst & Systems Infrastructure Engineer with 20+ years of expertise in campus-scale networks, enterprise security, and cloud administration.',
+  headline: 'Senior Programmer & E-Governance Specialist | Google Certified GenAI Leader',
+  subheadline: 'Cybersecurity Analyst & Systems Infrastructure Engineer with 20+ years of expertise in campus-scale networks, enterprise security, cloud administration, and Generative AI strategy.',
   email: 'hgnagendra@gmail.com',
   location: 'Mysuru, Karnataka, India',
   linkedinUrl: 'https://www.linkedin.com/in/nagendrahg',
   githubUrl: 'https://github.com/nagendrahg',
+  photoUrl: profilePhoto,
   about: {
     bio: [
       'Experienced IT professional with over 20 years of expertise in system administration, cybersecurity, and network management. Currently serving as a Programmer at The National Institute of Engineering (NIE), Mysuru, I specialize in maintaining critical campus IT infrastructure, managing high-throughput networks, and implementing robust zero-trust cybersecurity protocols.',
-      'At the heart of my professional ethos lies a passion for empowering educators and students through dependable, high-performance IT ecosystems. My background spans hands-on penetration testing, web application security auditing, and large-scale E-Governance systems designed for educational autonomy.',
+      'Certified as a Google Generative AI Leader, I integrate modern generative AI frameworks, ethical AI governance, and cloud automation into enterprise workflows. My background spans hands-on penetration testing, web application security auditing, and large-scale E-Governance systems designed for educational autonomy.',
       'As a Level 20 Contributor to Google Crowdsource and top contributor to the Kannada Vocalize initiative, I am deeply committed to open-source knowledge sharing, regional language computing, and mentoring the next generation of cybersecurity and IT specialists.'
     ],
-    mission: 'To build resilient, secure, and accessible digital governance architectures that safeguard institutional data while accelerating academic innovation.',
+    mission: 'To build resilient, secure, and accessible digital governance architectures that safeguard institutional data while accelerating academic innovation and generative AI adoption.',
     yearsOfExperience: 20,
     keyMetrics: [
       { label: 'Years Experience', value: '20+', helper: 'Continuous IT & Systems Engineering' },
       { label: 'Campus Users Served', value: '5,000+', helper: 'Students, Faculty & Administration' },
       { label: 'Google Crowdsource', value: 'Level 20', helper: 'Top Contributor (Kannada Vocalize)' },
-      { label: 'Professional Certifications', value: '7+', helper: 'Google, TCS & CNSS Credentials' },
+      { label: 'Professional Certifications', value: '8+', helper: 'Google GenAI Leader, Cloud, TCS & CNSS' },
     ],
   },
 };
@@ -287,6 +289,14 @@ export const educationData: EducationItem[] = [
 
 export const certificationsData: CertificationItem[] = [
   {
+    id: 'cert-google-genai-leader',
+    name: 'Google Cloud Certified - Generative AI Leader',
+    issuer: 'Google Cloud',
+    skills: ['Generative AI Strategy', 'Large Language Models (LLMs)', 'AI Governance & Ethics', 'Gemini & Prompt Design', 'Enterprise AI Transformation'],
+    badgeColor: 'sky',
+    featured: true
+  },
+  {
     id: 'cert-tcs-cybersecurity',
     name: 'Cybersecurity Analyst Job Simulation',
     issuer: 'Tata Consultancy Services (TCS)',
@@ -387,14 +397,16 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     id: 'programming-ai',
-    title: 'Programming, Scripting & AI Data',
-    description: 'Automation scripting, database querying, web technologies, and regional language AI speech dataset engineering.',
+    title: 'Generative AI, Scripting & AI Data',
+    description: 'Generative AI strategy, LLM integration, automation scripting, database querying, and regional language AI speech dataset engineering.',
     skills: [
+      { name: 'Generative AI Strategy & LLMs (Google Certified)', level: 94, category: 'programming-ai', isTop: true, years: '2+ yrs' },
+      { name: 'Kannada AI Speech Corpus & Annotation', level: 98, category: 'programming-ai', isTop: true, years: '4+ yrs' },
+      { name: 'AI Governance, Ethics & Prompt Design', level: 91, category: 'programming-ai', isTop: false, years: '2+ yrs' },
       { name: 'Bash Shell & Linux Scripting', level: 94, category: 'programming-ai', isTop: false, years: '18+ yrs' },
       { name: 'Python Automation & Security Tools', level: 88, category: 'programming-ai', isTop: false, years: '10+ yrs' },
       { name: 'SQL & Relational Databases (MySQL/PgSQL)', level: 92, category: 'programming-ai', isTop: false, years: '18+ yrs' },
       { name: 'Web Technologies (HTML5, PHP, REST APIs)', level: 90, category: 'programming-ai', isTop: false, years: '16+ yrs' },
-      { name: 'Kannada AI Speech Corpus & Annotation', level: 98, category: 'programming-ai', isTop: true, years: '4+ yrs' },
       { name: 'Technical Mentorship & Team Training', level: 95, category: 'programming-ai', isTop: false, years: '20+ yrs' }
     ]
   }
