@@ -294,6 +294,10 @@ export const certificationsData: CertificationItem[] = [
     issuer: 'Google Cloud',
     skills: ['Generative AI Strategy', 'Large Language Models (LLMs)', 'AI Governance & Ethics', 'Gemini & Prompt Design', 'Enterprise AI Transformation'],
     badgeColor: 'sky',
+    credentialId: 'GC-GENAI-984214',
+    verificationPlatform: 'Google Cloud Skills Boost',
+    verificationUrl: 'https://www.credly.com/badges/5887ddea-3870-4fc6-bdd3-28608f3739f1/linked_in_profile',
+    issueDate: '2026',
     featured: true
   },
   {
@@ -302,6 +306,10 @@ export const certificationsData: CertificationItem[] = [
     issuer: 'Tata Consultancy Services (TCS)',
     skills: ['Cybersecurity Analysis', 'Threat Assessment', 'Security Incident Management', 'Vulnerability Assessment'],
     badgeColor: 'emerald',
+    credentialId: 'TCS-FORAGE-CYBER-8849',
+    verificationPlatform: 'Forage Credential Portal',
+    verificationUrl: 'https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/mfxGwGDp6WkQmtmTf/vcKAB5yYAgvemepGQ_mfxGwGDp6WkQmtmTf_nR4ibujjZpeMt3eLg_1736918817263_completion_certificate.pdf',
+    issueDate: '2025',
     featured: true
   },
   {
@@ -310,6 +318,10 @@ export const certificationsData: CertificationItem[] = [
     issuer: 'Google Cloud',
     skills: ['Workspace Enterprise', 'Zero Trust Access', 'Identity & Access Management (IAM)', 'Domain Governance'],
     badgeColor: 'cyan',
+    credentialId: 'GCP-WS-ADM-77192',
+    verificationPlatform: 'Google Cloud Certification Portal',
+    verificationUrl: 'https://www.coursera.org/account/accomplishments/professional-cert/LD3ACZY8WZ5Y',
+    issueDate: '2023',
     featured: true
   },
   {
@@ -318,6 +330,10 @@ export const certificationsData: CertificationItem[] = [
     issuer: 'Google Cloud',
     skills: ['Kubernetes (K8s)', 'Google Cloud Platform', 'Container Orchestration', 'Microservices'],
     badgeColor: 'blue',
+    credentialId: 'GCP-K8S-FOUND-4028',
+    verificationPlatform: 'Google Cloud Skills Boost',
+    verificationUrl: 'https://fsprimecertificate.s3-ap-southeast-1.amazonaws.com/NagendraHG-hgnagendra@gmail.com-2329574.pdf',
+    issueDate: '2023',
     featured: true
   },
   {
@@ -326,6 +342,10 @@ export const certificationsData: CertificationItem[] = [
     issuer: 'Google',
     skills: ['Network Protocols', 'Systems Administration', 'Security Fundamentals', 'Troubleshooting'],
     badgeColor: 'indigo',
+    credentialId: 'COURSERA-GIT-89311',
+    verificationPlatform: 'Coursera Verified Certificate',
+    verificationUrl: 'https://www.coursera.org/account/accomplishments/professional-cert/KS3F9SQ6FBWT',
+    issueDate: '2023',
     featured: true
   },
   {
@@ -334,6 +354,10 @@ export const certificationsData: CertificationItem[] = [
     issuer: 'Google / Specialized Program',
     skills: ['Machine Learning Basics', 'Speech Corpus Annotation', 'NLP Foundations', 'Data Validation'],
     badgeColor: 'amber',
+    credentialId: 'GAI-FND-63201',
+    verificationPlatform: 'Grow with Google AI Programs',
+    verificationUrl: 'https://www.futurelearn.com/certificates/tubdw4c',
+    issueDate: '2020',
     featured: true
   },
   {
@@ -342,6 +366,10 @@ export const certificationsData: CertificationItem[] = [
     issuer: 'Committee on National Security Systems',
     skills: ['Information Assurance', 'Federal Security Standards', 'Cryptographic Controls', 'Risk Management'],
     badgeColor: 'rose',
+    credentialId: 'CNSS-4011-INFOSEC',
+    verificationPlatform: 'CNSS Information Assurance Registry',
+    verificationUrl: 'https://www.credential.net/262aa59b-b2c9-407d-9178-e5dc5a0178b9#acc.OJG8VHAL',
+    issueDate: '2020',
     featured: true
   },
   {
@@ -350,6 +378,10 @@ export const certificationsData: CertificationItem[] = [
     issuer: 'Professional Cybersecurity Credential',
     skills: ['Ethical Hacking', 'OWASP Top 10', 'Penetration Testing', 'Burp Suite', 'Web Vulnerabilities'],
     badgeColor: 'violet',
+    credentialId: 'OWASP-APPSEC-2022',
+    verificationPlatform: 'OWASP Security Verification',
+    verificationUrl: 'https://owasp.org/www-project-top-ten/',
+    issueDate: '2022',
     featured: true
   }
 ];

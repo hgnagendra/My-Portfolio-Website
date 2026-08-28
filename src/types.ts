@@ -42,6 +42,9 @@ export interface CertificationItem {
   skills: string[];
   badgeColor?: string;
   credentialId?: string;
+  verificationUrl?: string;
+  verificationPlatform?: string;
+  issueDate?: string;
   featured?: boolean;
 }
 

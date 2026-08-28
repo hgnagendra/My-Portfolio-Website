@@ -173,13 +173,20 @@ export const PrintableResumeModal: React.FC<PrintableResumeModalProps> = ({ isOp
               {/* Certifications */}
               <div className="space-y-2">
                 <h2 className="text-xs font-bold uppercase tracking-wider text-slate-950 bg-slate-100 p-1.5 rounded border-l-2 border-slate-900">
-                  Certifications
+                  Certifications & Verified IDs
                 </h2>
                 <ul className="text-[11px] text-slate-700 space-y-2">
                   {certificationsData.map(c => (
-                    <li key={c.id}>
+                    <li key={c.id} className="space-y-0.5">
                       <span className="font-semibold text-slate-900 block leading-tight">{c.name}</span>
-                      <span className="text-slate-500 text-[10px]">{c.issuer}</span>
+                      <div className="flex items-center justify-between text-[10px] text-slate-500">
+                        <span>{c.issuer}</span>
+                        {c.credentialId && (
+                          <span className="font-mono text-[9px] text-slate-600 bg-slate-100 px-1 py-0.2 rounded">
+                            {c.credentialId}
+                          </span>
+                        )}
+                      </div>
                     </li>
                   ))}
                 </ul>

@@ -4,6 +4,7 @@
  */
 
 import React, { useState } from 'react';
+import { ThemeProvider } from './context/ThemeContext';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
@@ -20,30 +21,32 @@ export default function App() {
   const [isResumeModalOpen, setIsResumeModalOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#FDFDFD] text-[#1A1A1A] selection:bg-blue-600/15 selection:text-blue-700">
-      {/* Global Navbar */}
-      <Navbar onOpenResumeModal={() => setIsResumeModalOpen(true)} />
+    <ThemeProvider>
+      <div className="min-h-screen bg-[#FDFDFD] dark:bg-[#0b0f17] text-[#1A1A1A] dark:text-slate-100 selection:bg-blue-600/15 selection:text-blue-700 dark:selection:bg-blue-500/30 dark:selection:text-blue-300 transition-colors duration-300">
+        {/* Global Navbar */}
+        <Navbar onOpenResumeModal={() => setIsResumeModalOpen(true)} />
 
-      {/* Main Content Layout */}
-      <main className="relative">
-        <Hero onOpenResumeModal={() => setIsResumeModalOpen(true)} />
-        <About onOpenResumeModal={() => setIsResumeModalOpen(true)} />
-        <Projects />
-        <Skills />
-        <Experience />
-        <Certifications />
-        <ResumeSection onOpenResumeModal={() => setIsResumeModalOpen(true)} />
-        <Contact />
-      </main>
+        {/* Main Content Layout */}
+        <main className="relative">
+          <Hero onOpenResumeModal={() => setIsResumeModalOpen(true)} />
+          <About onOpenResumeModal={() => setIsResumeModalOpen(true)} />
+          <Projects />
+          <Skills />
+          <Experience />
+          <Certifications />
+          <ResumeSection onOpenResumeModal={() => setIsResumeModalOpen(true)} />
+          <Contact />
+        </main>
 
-      {/* Global Footer */}
-      <Footer />
+        {/* Global Footer */}
+        <Footer />
 
-      {/* Printable / Viewable Resume Modal */}
-      <PrintableResumeModal
-        isOpen={isResumeModalOpen}
-        onClose={() => setIsResumeModalOpen(false)}
-      />
-    </div>
+        {/* Printable / Viewable Resume Modal */}
+        <PrintableResumeModal
+          isOpen={isResumeModalOpen}
+          onClose={() => setIsResumeModalOpen(false)}
+        />
+      </div>
+    </ThemeProvider>
   );
 }

@@ -34,7 +34,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResumeModal }) => {
   return (
     <section 
       id="top"
-      className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden border-b border-gray-200/80"
+      className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden border-b border-gray-200/80 dark:border-slate-800/80"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -43,46 +43,46 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResumeModal }) => {
           <div className="lg:col-span-7 space-y-6">
             
             {/* Live Status Pill */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gray-100 border border-gray-200 text-xs text-gray-700 shadow-xs">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gray-100 dark:bg-slate-800/80 border border-gray-200 dark:border-slate-700 text-xs text-gray-700 dark:text-slate-300 shadow-xs">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-500 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600 dark:bg-blue-400"></span>
               </span>
-              <span className="font-semibold text-gray-900">NIE Mysuru</span>
-              <span className="text-gray-300">•</span>
-              <span className="text-gray-600">20+ Years in IT Infrastructure & Cybersecurity</span>
+              <span className="font-semibold text-gray-900 dark:text-slate-100">NIE Mysuru</span>
+              <span className="text-gray-300 dark:text-slate-600">•</span>
+              <span className="text-gray-600 dark:text-slate-400">20+ Years in IT Infrastructure & Cybersecurity</span>
             </div>
 
             {/* Headline */}
             <div className="space-y-3">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#1A1A1A] leading-[1.1]">
-                Hi, I'm {profileData.name}<span className="text-blue-600">.</span>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#1A1A1A] dark:text-white leading-[1.1]">
+                Hi, I'm {profileData.name}<span className="text-blue-600 dark:text-blue-400">.</span>
               </h1>
-              <p className="text-lg sm:text-xl font-medium text-gray-600 tracking-tight">
+              <p className="text-lg sm:text-xl font-medium text-gray-600 dark:text-slate-300 tracking-tight">
                 Programmer @ The National Institute of Engineering (NIE), Mysuru
               </p>
               <div className="flex flex-wrap items-center gap-2 pt-1">
-                <span className="px-3 py-1 bg-blue-50 border border-blue-200 text-blue-700 rounded-full text-xs font-semibold shadow-xs flex items-center gap-1">
-                  <Sparkles className="w-3 h-3 text-blue-600" />
+                <span className="px-3 py-1 bg-blue-50 dark:bg-blue-950/50 border border-blue-200 dark:border-blue-800/60 text-blue-700 dark:text-blue-300 rounded-full text-xs font-semibold shadow-xs flex items-center gap-1">
+                  <Sparkles className="w-3 h-3 text-blue-600 dark:text-blue-400" />
                   Google GenAI Leader
                 </span>
-                <span className="px-3 py-1 bg-white border border-gray-200 rounded-full text-xs font-medium text-gray-700 shadow-xs">
+                <span className="px-3 py-1 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-full text-xs font-medium text-gray-700 dark:text-slate-300 shadow-xs">
                   E-Governance
                 </span>
-                <span className="px-3 py-1 bg-white border border-gray-200 rounded-full text-xs font-medium text-gray-700 shadow-xs">
+                <span className="px-3 py-1 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-full text-xs font-medium text-gray-700 dark:text-slate-300 shadow-xs">
                   WebAppSecurity
                 </span>
-                <span className="px-3 py-1 bg-white border border-gray-200 rounded-full text-xs font-medium text-gray-700 shadow-xs">
+                <span className="px-3 py-1 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-full text-xs font-medium text-gray-700 dark:text-slate-300 shadow-xs">
                   PenetrationTesting
                 </span>
-                <span className="px-3 py-1 bg-white border border-gray-200 rounded-full text-xs font-medium text-gray-700 shadow-xs">
+                <span className="px-3 py-1 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-full text-xs font-medium text-gray-700 dark:text-slate-300 shadow-xs">
                   Ethical Hacking
                 </span>
               </div>
             </div>
 
             {/* Subtitle & Value Proposition */}
-            <p className="text-base sm:text-lg text-gray-600 leading-relaxed max-w-2xl">
+            <p className="text-base sm:text-lg text-gray-600 dark:text-slate-300 leading-relaxed max-w-2xl">
               Experienced IT professional with over 20 years of hands-on leadership in campus-wide network infrastructure, ethical hacking, and electronic governance. Google Certified Generative AI Leader driving resilient cybersecurity protocols, AI governance, and scalable digital ecosystems.
             </p>
 
@@ -91,7 +91,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResumeModal }) => {
               <a
                 id="hero-explore-projects-btn"
                 href="#projects"
-                className="flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold bg-black text-white hover:bg-gray-800 transition-all shadow-xs cursor-pointer"
+                className="flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold bg-black dark:bg-blue-600 text-white hover:bg-gray-800 dark:hover:bg-blue-500 transition-all shadow-xs cursor-pointer"
               >
                 <span>Explore Projects</span>
                 <ArrowRight className="w-4 h-4" />
@@ -100,26 +100,26 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResumeModal }) => {
               <button
                 id="hero-download-resume-btn"
                 onClick={onOpenResumeModal}
-                className="flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold bg-white hover:bg-gray-50 text-gray-800 border border-gray-200 transition-all cursor-pointer shadow-xs"
+                className="flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold bg-white dark:bg-slate-800/90 hover:bg-gray-50 dark:hover:bg-slate-700 text-gray-800 dark:text-slate-200 border border-gray-200 dark:border-slate-700 transition-all cursor-pointer shadow-xs"
               >
-                <FileDown className="w-4 h-4 text-blue-600" />
+                <FileDown className="w-4 h-4 text-blue-600 dark:text-blue-400" />
                 <span>Download Resume</span>
               </button>
 
               <button
                 id="hero-copy-email-btn"
                 onClick={handleCopyEmail}
-                className="flex items-center gap-2 px-5 py-3 rounded-full text-sm font-medium bg-gray-100 hover:bg-gray-200/80 text-gray-700 border border-gray-200 transition-all cursor-pointer"
+                className="flex items-center gap-2 px-5 py-3 rounded-full text-sm font-medium bg-gray-100 dark:bg-slate-800 hover:bg-gray-200/80 dark:hover:bg-slate-700 text-gray-700 dark:text-slate-300 border border-gray-200 dark:border-slate-700 transition-all cursor-pointer"
                 title="Copy Email Address"
               >
                 {copiedEmail ? (
                   <>
-                    <Check className="w-4 h-4 text-emerald-600" />
-                    <span className="text-emerald-700 text-xs font-semibold">Copied!</span>
+                    <Check className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                    <span className="text-emerald-700 dark:text-emerald-400 text-xs font-semibold">Copied!</span>
                   </>
                 ) : (
                   <>
-                    <Copy className="w-4 h-4 text-gray-500" />
+                    <Copy className="w-4 h-4 text-gray-500 dark:text-slate-400" />
                     <span className="text-xs font-mono">{profileData.email}</span>
                   </>
                 )}
@@ -127,13 +127,13 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResumeModal }) => {
             </div>
 
             {/* Social & Contact Direct Links in clean minimalist slash format */}
-            <div className="flex flex-wrap items-center gap-4 pt-3 text-xs text-gray-500 border-t border-gray-200">
+            <div className="flex flex-wrap items-center gap-4 pt-3 text-xs text-gray-500 dark:text-slate-400 border-t border-gray-200 dark:border-slate-800">
               <a
                 id="hero-linkedin-link"
                 href={profileData.linkedinUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="text-gray-400 hover:text-black transition-colors"
+                className="text-gray-400 hover:text-black dark:hover:text-white transition-colors"
               >
                 <span className="uppercase tracking-widest font-medium">LinkedIn /</span>
               </a>
@@ -143,13 +143,13 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResumeModal }) => {
                 href={profileData.githubUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="text-gray-400 hover:text-black transition-colors"
+                className="text-gray-400 hover:text-black dark:hover:text-white transition-colors"
               >
                 <span className="uppercase tracking-widest font-medium">GitHub /</span>
               </a>
 
-              <div className="flex items-center gap-1.5 text-gray-500">
-                <MapPin className="w-3.5 h-3.5 text-gray-400" />
+              <div className="flex items-center gap-1.5 text-gray-500 dark:text-slate-400">
+                <MapPin className="w-3.5 h-3.5 text-gray-400 dark:text-slate-500" />
                 <span>Mysuru, Karnataka, India</span>
               </div>
             </div>
@@ -160,10 +160,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResumeModal }) => {
           <div className="lg:col-span-5">
             <div 
               id="hero-executive-profile-card"
-              className="rounded-3xl bg-gray-50 border border-gray-200 shadow-sm overflow-hidden"
+              className="rounded-3xl bg-gray-50 dark:bg-slate-900/90 border border-gray-200 dark:border-slate-800 shadow-sm overflow-hidden"
             >
               {/* Photo & Identity Banner */}
-              <div className="relative aspect-[4/3] sm:aspect-[1/1] w-full overflow-hidden bg-gray-100">
+              <div className="relative aspect-[4/3] sm:aspect-[1/1] w-full overflow-hidden bg-gray-100 dark:bg-slate-800">
                 {profileData.photoUrl ? (
                   <img
                     src={profileData.photoUrl}
@@ -172,33 +172,33 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResumeModal }) => {
                     className="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-105"
                   />
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center bg-gray-200 text-gray-400 font-mono">
+                  <div className="w-full h-full flex items-center justify-center bg-gray-200 dark:bg-slate-800 text-gray-400 font-mono">
                     Executive Portrait
                   </div>
                 )}
 
                 {/* Top Status Badges */}
                 <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
-                  <div className="px-3 py-1 rounded-full bg-white/90 backdrop-blur-md border border-gray-200 text-xs font-semibold text-gray-900 shadow-xs flex items-center gap-2">
+                  <div className="px-3 py-1 rounded-full bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border border-gray-200 dark:border-slate-700 text-xs font-semibold text-gray-900 dark:text-slate-100 shadow-xs flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                     <span>NIE Mysuru Lead</span>
                   </div>
-                  <div className="px-3 py-1 rounded-full bg-black/80 backdrop-blur-md text-white text-[11px] font-mono shadow-xs">
+                  <div className="px-3 py-1 rounded-full bg-black/80 dark:bg-slate-800/90 backdrop-blur-md text-white text-[11px] font-mono shadow-xs border border-transparent dark:border-slate-700">
                     20+ Yrs IT
                   </div>
                 </div>
 
                 {/* Bottom Floating Info Pill */}
-                <div className="absolute bottom-4 left-4 right-4 p-3 rounded-2xl bg-white/95 backdrop-blur-md border border-gray-200/90 shadow-md">
+                <div className="absolute bottom-4 left-4 right-4 p-3 rounded-2xl bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border border-gray-200/90 dark:border-slate-700/90 shadow-md">
                   <div className="flex items-center justify-between">
                     <div>
                       <div className="flex items-center gap-1.5">
-                        <span className="text-xs font-bold text-gray-900">{profileData.name}</span>
-                        <ShieldCheck className="w-4 h-4 text-blue-600" />
+                        <span className="text-xs font-bold text-gray-900 dark:text-white">{profileData.name}</span>
+                        <ShieldCheck className="w-4 h-4 text-blue-600 dark:text-blue-400" />
                       </div>
-                      <p className="text-[11px] text-gray-500">Programmer • E-Gov & Cybersecurity</p>
+                      <p className="text-[11px] text-gray-500 dark:text-slate-400">Programmer • E-Gov & Cybersecurity</p>
                     </div>
-                    <span className="px-2.5 py-1 rounded-full text-[10px] font-semibold bg-blue-50 text-blue-700 border border-blue-200">
+                    <span className="px-2.5 py-1 rounded-full text-[10px] font-semibold bg-blue-50 dark:bg-blue-950/70 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800">
                       Level 20
                     </span>
                   </div>
@@ -206,49 +206,49 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResumeModal }) => {
               </div>
 
               {/* Technical Profile Breakdown */}
-              <div className="p-5 sm:p-6 space-y-4 text-xs text-gray-700">
+              <div className="p-5 sm:p-6 space-y-4 text-xs text-gray-700 dark:text-slate-300">
                 {/* Key Spec Grid */}
                 <div className="grid grid-cols-2 gap-2.5">
-                  <div className="p-3 rounded-2xl bg-white border border-gray-200/90 shadow-2xs">
-                    <div className="flex items-center gap-1.5 text-blue-600 mb-0.5">
+                  <div className="p-3 rounded-2xl bg-white dark:bg-slate-800/80 border border-gray-200/90 dark:border-slate-700/80 shadow-2xs">
+                    <div className="flex items-center gap-1.5 text-blue-600 dark:text-blue-400 mb-0.5">
                       <Lock className="w-3.5 h-3.5" />
-                      <span className="font-bold text-[11px] text-gray-900">Cybersecurity</span>
+                      <span className="font-bold text-[11px] text-gray-900 dark:text-slate-100">Cybersecurity</span>
                     </div>
-                    <p className="text-[10px] text-gray-500 leading-snug">OWASP, Pen-testing & Hardening</p>
+                    <p className="text-[10px] text-gray-500 dark:text-slate-400 leading-snug">OWASP, Pen-testing & Hardening</p>
                   </div>
 
-                  <div className="p-3 rounded-2xl bg-white border border-gray-200/90 shadow-2xs">
-                    <div className="flex items-center gap-1.5 text-blue-600 mb-0.5">
+                  <div className="p-3 rounded-2xl bg-white dark:bg-slate-800/80 border border-gray-200/90 dark:border-slate-700/80 shadow-2xs">
+                    <div className="flex items-center gap-1.5 text-blue-600 dark:text-blue-400 mb-0.5">
                       <Server className="w-3.5 h-3.5" />
-                      <span className="font-bold text-[11px] text-gray-900">E-Governance</span>
+                      <span className="font-bold text-[11px] text-gray-900 dark:text-slate-100">E-Governance</span>
                     </div>
-                    <p className="text-[10px] text-gray-500 leading-snug">PGD E-Gov (UoM), Campus ERP</p>
+                    <p className="text-[10px] text-gray-500 dark:text-slate-400 leading-snug">PGD E-Gov (UoM), Campus ERP</p>
                   </div>
 
-                  <div className="p-3 rounded-2xl bg-white border border-gray-200/90 shadow-2xs">
-                    <div className="flex items-center gap-1.5 text-blue-600 mb-0.5">
+                  <div className="p-3 rounded-2xl bg-white dark:bg-slate-800/80 border border-gray-200/90 dark:border-slate-700/80 shadow-2xs">
+                    <div className="flex items-center gap-1.5 text-blue-600 dark:text-blue-400 mb-0.5">
                       <Award className="w-3.5 h-3.5" />
-                      <span className="font-bold text-[11px] text-gray-900">Google Certified</span>
+                      <span className="font-bold text-[11px] text-gray-900 dark:text-slate-100">Google Certified</span>
                     </div>
-                    <p className="text-[10px] text-gray-500 leading-snug">GenAI Leader & Workspace</p>
+                    <p className="text-[10px] text-gray-500 dark:text-slate-400 leading-snug">GenAI Leader & Workspace</p>
                   </div>
 
-                  <div className="p-3 rounded-2xl bg-white border border-gray-200/90 shadow-2xs">
-                    <div className="flex items-center gap-1.5 text-blue-600 mb-0.5">
+                  <div className="p-3 rounded-2xl bg-white dark:bg-slate-800/80 border border-gray-200/90 dark:border-slate-700/80 shadow-2xs">
+                    <div className="flex items-center gap-1.5 text-blue-600 dark:text-blue-400 mb-0.5">
                       <Sparkles className="w-3.5 h-3.5" />
-                      <span className="font-bold text-[11px] text-gray-900">Crowdsource</span>
+                      <span className="font-bold text-[11px] text-gray-900 dark:text-slate-100">Crowdsource</span>
                     </div>
-                    <p className="text-[10px] text-gray-500 leading-snug">Level 20 Top Contributor</p>
+                    <p className="text-[10px] text-gray-500 dark:text-slate-400 leading-snug">Level 20 Top Contributor</p>
                   </div>
                 </div>
 
                 {/* Verification Footer */}
-                <div className="pt-2 border-t border-gray-200 flex items-center justify-between text-[11px] text-gray-500">
+                <div className="pt-2 border-t border-gray-200 dark:border-slate-800 flex items-center justify-between text-[11px] text-gray-500 dark:text-slate-400">
                   <span className="flex items-center gap-1.5 font-medium">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
                     <span>Google GenAI, CNSS & TCS</span>
                   </span>
-                  <span className="text-gray-700 font-mono">B.Sc IT (KSOU)</span>
+                  <span className="text-gray-700 dark:text-slate-300 font-mono">B.Sc IT (KSOU)</span>
                 </div>
               </div>
             </div>
@@ -257,20 +257,20 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResumeModal }) => {
         </div>
 
         {/* Highlight Metrics Bar */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 pt-8 border-t border-gray-200">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 pt-8 border-t border-gray-200 dark:border-slate-800">
           {profileData.about.keyMetrics.map((metric, idx) => (
             <div 
               key={idx}
               id={`hero-metric-${idx}`}
-              className="p-5 rounded-2xl bg-gray-50 border border-gray-200 hover:border-gray-300 transition-colors"
+              className="p-5 rounded-2xl bg-gray-50 dark:bg-slate-900/90 border border-gray-200 dark:border-slate-800 hover:border-gray-300 dark:hover:border-slate-700 transition-colors"
             >
-              <div className="text-2xl sm:text-3xl font-bold font-mono text-gray-900">
+              <div className="text-2xl sm:text-3xl font-bold font-mono text-gray-900 dark:text-white">
                 {metric.value}
               </div>
-              <div className="text-xs font-semibold text-gray-800 mt-1">
+              <div className="text-xs font-semibold text-gray-800 dark:text-slate-200 mt-1">
                 {metric.label}
               </div>
-              <div className="text-[11px] text-gray-500 mt-0.5">
+              <div className="text-[11px] text-gray-500 dark:text-slate-400 mt-0.5">
                 {metric.helper}
               </div>
             </div>
