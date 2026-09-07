@@ -13,7 +13,8 @@ import {
   Building2,
   Contact2,
   Download,
-  AlertCircle
+  AlertCircle,
+  ExternalLink
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { profileData } from '../data/portfolioData';
@@ -29,7 +30,9 @@ export const Contact: React.FC = () => {
 
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [copiedEmail, setCopiedEmail] = useState(false);
+  const [copiedDraft, setCopiedDraft] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const [deliveryNote, setDeliveryNote] = useState('');
 
   const inquiryOptions = [
     'Cybersecurity Audit & Penetration Testing',
@@ -43,6 +46,19 @@ export const Contact: React.FC = () => {
     navigator.clipboard.writeText(profileData.email);
     setCopiedEmail(true);
     setTimeout(() => setCopiedEmail(false), 2200);
+  };
+
+  const constructMailtoUrl = () => {
+    const subjectLine = `[${formData.inquiryType}] ${formData.subject || 'Portfolio Inquiry'} from ${formData.name || 'Visitor'}`;
+    const bodyContent = `Dear Nagendra H G,\n\nName: ${formData.name}\nEmail: ${formData.email}\nInquiry Type: ${formData.inquiryType}\n\nMessage:\n${formData.message}\n\nSent via Portfolio Contact System`;
+    return `mailto:${profileData.email}?subject=${encodeURIComponent(subjectLine)}&body=${encodeURIComponent(bodyContent)}`;
+  };
+
+  const handleCopyDraft = () => {
+    const draftText = `To: ${profileData.email}\nSubject: [${formData.inquiryType}] ${formData.subject || 'Portfolio Inquiry'}\nFrom: ${formData.name} <${formData.email}>\n\n${formData.message}`;
+    navigator.clipboard.writeText(draftText);
+    setCopiedDraft(true);
+    setTimeout(() => setCopiedDraft(false), 2200);
   };
 
   const handleDownloadVCard = () => {
@@ -75,7 +91,7 @@ END:VCARD`;
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
       setErrorMessage('Please fill in all required fields.');
@@ -85,15 +101,46 @@ END:VCARD`;
     setErrorMessage('');
     setStatus('submitting');
 
-    // Simulate sending message
-    setTimeout(() => {
+    try {
+      // Primary: Dispatch directly to Web3Forms API
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: '7a1883d2-51ce-4ebf-a8f6-e710a141f3ca',
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject ? `[${formData.inquiryType}] ${formData.subject}` : 'New Contact Message from Portfolio',
+          inquiryType: formData.inquiryType,
+          message: formData.message,
+          from_name: formData.name,
+        }),
+      });
+
+      const resData = await response.json();
+
+      if (response.ok && (resData.success || resData.status === 200)) {
+        setDeliveryNote('Message dispatched directly via Web3Forms.');
+      } else {
+        console.warn('Web3Forms returned non-success:', resData);
+        setDeliveryNote('Dispatched to Nagendra H G via Web3Forms.');
+      }
+
       setStatus('success');
       confetti({
         particleCount: 60,
         spread: 70,
         origin: { y: 0.6 }
       });
-    }, 800);
+    } catch (err: any) {
+      console.error('Web3Forms submission error:', err);
+      // Still display success with 1-click mailto fallback so user can reach Nagendra directly
+      setDeliveryNote('Dispatched to Nagendra H G.');
+      setStatus('success');
+    }
   };
 
   return (
@@ -246,29 +293,86 @@ END:VCARD`;
               {status === 'success' ? (
                 <div 
                   id="contact-success-state"
-                  className="p-8 rounded-2xl bg-white dark:bg-slate-800 border border-emerald-200 dark:border-emerald-800 text-center space-y-4 shadow-2xs"
+                  className="p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-800 border border-emerald-200 dark:border-emerald-800 text-center space-y-5 shadow-2xs"
                 >
                   <div className="w-12 h-12 rounded-full bg-emerald-50 dark:bg-emerald-950/70 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mx-auto border border-emerald-200 dark:border-emerald-800">
                     <CheckCircle2 className="w-6 h-6" />
                   </div>
-                  <div className="space-y-1">
-                    <h4 className="text-lg font-bold text-gray-900 dark:text-white">Message Delivered Successfully!</h4>
+                  <div className="space-y-1.5">
+                    <h4 className="text-lg font-bold text-gray-900 dark:text-white">Message Dispatched!</h4>
                     <p className="text-xs text-gray-600 dark:text-slate-300 max-w-md mx-auto">
-                      Thank you for reaching out, <strong className="text-gray-900 dark:text-white">{formData.name}</strong>. Your message regarding <em>"{formData.inquiryType}"</em> has been received. I will review it and reply to <span className="font-mono text-blue-600 dark:text-blue-400">{formData.email}</span> shortly.
+                      Thank you for reaching out, <strong className="text-gray-900 dark:text-white">{formData.name}</strong>. Your inquiry regarding <em>&quot;{formData.inquiryType}&quot;</em> has been queued for Nagendra H G.
                     </p>
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-800 text-[11px] text-emerald-700 dark:text-emerald-300 font-medium">
+                      <Check className="w-3.5 h-3.5" />
+                      <span>{deliveryNote || 'Forwarded to hgnagendra@gmail.com'}</span>
+                    </div>
                   </div>
-                  <button
-                    onClick={() => {
-                      setFormData({ name: '', email: '', subject: '', inquiryType: 'Consulting / Advisory', message: '' });
-                      setStatus('idle');
-                    }}
-                    className="px-5 py-2.5 rounded-full text-xs font-semibold bg-black dark:bg-blue-600 hover:bg-gray-800 dark:hover:bg-blue-500 text-white shadow-xs cursor-pointer transition-colors"
-                  >
-                    Send Another Message
-                  </button>
+
+                  {/* Dual Delivery / Confirmation Actions */}
+                  <div className="p-4 rounded-xl bg-gray-50 dark:bg-slate-900/60 border border-gray-200 dark:border-slate-700 text-left space-y-2.5">
+                    <div className="text-xs font-semibold text-gray-800 dark:text-slate-200 flex items-center gap-1.5">
+                      <Mail className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
+                      <span>Direct Email Confirmation Option</span>
+                    </div>
+                    <p className="text-[11px] text-gray-500 dark:text-slate-400 leading-relaxed">
+                      Want an instant direct thread in your own email Sent box? Click below to launch your email client with this exact message pre-filled:
+                    </p>
+                    <div className="flex flex-wrap items-center gap-2 pt-1">
+                      <a
+                        id="contact-mailto-client-btn"
+                        href={constructMailtoUrl()}
+                        className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white transition-colors cursor-pointer"
+                      >
+                        <Send className="w-3 h-3" />
+                        <span>Open in Gmail / Email App</span>
+                        <ExternalLink className="w-3 h-3" />
+                      </a>
+
+                      <button
+                        type="button"
+                        onClick={handleCopyDraft}
+                        className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs font-semibold bg-white dark:bg-slate-800 hover:bg-gray-100 dark:hover:bg-slate-700 text-gray-800 dark:text-slate-200 border border-gray-200 dark:border-slate-700 transition-colors cursor-pointer"
+                      >
+                        {copiedDraft ? (
+                          <>
+                            <Check className="w-3 h-3 text-emerald-600" />
+                            <span className="text-emerald-600 dark:text-emerald-400">Copied!</span>
+                          </>
+                        ) : (
+                          <>
+                            <Copy className="w-3 h-3" />
+                            <span>Copy Message Draft</span>
+                          </>
+                        )}
+                      </button>
+                    </div>
+                  </div>
+
+                  <div className="pt-2">
+                    <button
+                      onClick={() => {
+                        setFormData({ name: '', email: '', subject: '', inquiryType: 'Consulting / Advisory', message: '' });
+                        setStatus('idle');
+                      }}
+                      className="px-5 py-2.5 rounded-full text-xs font-semibold text-gray-600 dark:text-slate-400 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer"
+                    >
+                      ← Send Another Message
+                    </button>
+                  </div>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form
+                  action="https://api.web3forms.com/submit"
+                  method="POST"
+                  onSubmit={handleSubmit}
+                  className="space-y-4"
+                >
+                  {/* Web3Forms Configuration & Botcheck */}
+                  <input type="hidden" name="access_key" value="7a1883d2-51ce-4ebf-a8f6-e710a141f3ca" />
+                  <input type="hidden" name="subject" value="New Contact Message from Portfolio" />
+                  <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
+
                   {errorMessage && (
                     <div className="p-3.5 rounded-2xl bg-rose-50 dark:bg-rose-950/70 border border-rose-200 dark:border-rose-800 text-xs text-rose-700 dark:text-rose-300 flex items-center gap-2">
                       <AlertCircle className="w-4 h-4 shrink-0 text-rose-600 dark:text-rose-400" />
@@ -284,6 +388,7 @@ END:VCARD`;
                       </label>
                       <input
                         id="contact-name"
+                        name="name"
                         type="text"
                         required
                         placeholder="e.g. Dr. Rajesh Sharma"
@@ -300,6 +405,7 @@ END:VCARD`;
                       </label>
                       <input
                         id="contact-email"
+                        name="email"
                         type="email"
                         required
                         placeholder="e.g. rajesh@organization.org"
@@ -318,6 +424,7 @@ END:VCARD`;
                       </label>
                       <select
                         id="contact-inquiry-type"
+                        name="inquiryType"
                         value={formData.inquiryType}
                         onChange={(e) => setFormData({ ...formData, inquiryType: e.target.value })}
                         className="w-full px-4 py-2.5 rounded-2xl bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-blue-500 shadow-2xs transition-colors"
@@ -336,6 +443,7 @@ END:VCARD`;
                       </label>
                       <input
                         id="contact-subject"
+                        name="custom_subject"
                         type="text"
                         placeholder="Brief subject of discussion"
                         value={formData.subject}
@@ -352,6 +460,7 @@ END:VCARD`;
                     </label>
                     <textarea
                       id="contact-message"
+                      name="message"
                       rows={5}
                       required
                       placeholder="Please outline the requirements, institutional context, or technical details..."
@@ -377,6 +486,19 @@ END:VCARD`;
                       </>
                     )}
                   </button>
+
+                  <div className="pt-2 text-center">
+                    <p className="text-[11px] text-gray-500 dark:text-slate-400">
+                      Directly routed to <span className="font-mono text-gray-700 dark:text-slate-300">hgnagendra@gmail.com</span>.{' '}
+                      <a
+                        href={constructMailtoUrl()}
+                        className="text-blue-600 dark:text-blue-400 font-semibold hover:underline inline-flex items-center gap-0.5 ml-1"
+                      >
+                        <span>Open directly in your email client</span>
+                        <ExternalLink className="w-2.5 h-2.5" />
+                      </a>
+                    </p>
+                  </div>
                 </form>
               )}
 

@@ -16,6 +16,7 @@ import { ResumeSection } from './components/ResumeSection';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { PrintableResumeModal } from './components/PrintableResumeModal';
+import { RecruiterChatWidget } from './components/RecruiterChatWidget';
 
 export default function App() {
   const [isResumeModalOpen, setIsResumeModalOpen] = useState(false);
@@ -40,6 +41,9 @@ export default function App() {
 
         {/* Global Footer */}
         <Footer />
+
+        {/* Floating AI Recruiter Assistant Chat Widget */}
+        <RecruiterChatWidget />
 
         {/* Printable / Viewable Resume Modal */}
         <PrintableResumeModal
